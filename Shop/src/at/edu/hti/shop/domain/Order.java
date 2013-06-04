@@ -1,44 +1,47 @@
 package at.edu.hti.shop.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Order {
 
 	List<OrderLine> lines = new ArrayList<OrderLine>();
-	IPriceStrategy strategy;
+	IPriceStrategy priceStrategy;
 
-	public Order(IPriceStrategy strategy) {
-		this.strategy = strategy;
+	public Order(IPriceStrategy priceStrategy) {
+		setPriceStrategy(priceStrategy);
 	}
 
-	public boolean add(OrderLine e) {
+	public boolean addLine(OrderLine e) {
 
 		if (e == null)
 			return false;
+		
+		e.setOrder(this);
 
 		return lines.add(e);
 	}
+	
+	public boolean removeLine(OrderLine line) {
+		if (line == null)
+			return false;
+		
+		line.setOrder(null);
+
+		return lines.remove(line);		
+	}
+	
+	public List<OrderLine> getLines() {
+		return Collections.unmodifiableList(lines);
+	}
 
 	public double calcPrize() {
-		return strategy.calcPrice(lines);
+		return priceStrategy.calcPrice(lines);
 	}
-
-	public int size() {
-		return lines.size();
-	}
-
-	public void setAmount(int index, int amount) {
-		OrderLine line = lines.get(index);
-		if (line == null) {
-			return;
-		}
-
-		if (amount == 0) {
-			lines.remove(index);
-		} else {
-			line.setAmount(amount);
-		}
+	
+	public void setPriceStrategy(IPriceStrategy priceStrategy) {
+		this.priceStrategy = priceStrategy;
 	}
 
 	@Override
