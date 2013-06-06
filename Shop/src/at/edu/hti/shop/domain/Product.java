@@ -25,6 +25,14 @@ public class Product {
 		return prize;
 	}
 
+	public long getWeight() {
+		return weight;
+	}
+
+	public void setWeight(long weight) {
+		this.weight = weight;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [" + name + ", " + id + ", " + prize + "]";
