@@ -4,7 +4,7 @@ public class Product {
 	private String name;
 	private long id;
 	private double prize;
-	
+	private long weight; 
 
 	public Product( long id, String name, double prize) {
 		super();
