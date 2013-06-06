@@ -4,7 +4,8 @@ public class Product {
 	private String name;
 	private long id;
 	private double prize;
-	private long weight; 
+	private double weight; 
+	private int deliveryTime;
 
 	public Product( long id, String name, double prize) {
 		super();
@@ -25,12 +26,20 @@ public class Product {
 		return prize;
 	}
 
-	public long getWeight() {
+	public double getWeight() {
 		return weight;
 	}
 
-	public void setWeight(long weight) {
+	public void setWeight(double weight) {
 		this.weight = weight;
+	}
+
+	public int getDeliveryTime() {
+		return deliveryTime;
+	}
+
+	public void setDeliveryTime(int deliveryTime) {
+		this.deliveryTime = deliveryTime;
 	}
 
 	@Override
