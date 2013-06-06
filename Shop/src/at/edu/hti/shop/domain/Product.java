@@ -1,11 +1,12 @@
 package at.edu.hti.shop.domain;
 
-public class Product {
+public class Product<T extends ProductCategory> {
 	private String name;
 	private long id;
 	private double prize;
 	private double weight; 
 	private int deliveryTime;
+	private T category;
 
 	public Product( long id, String name, double prize) {
 		super();

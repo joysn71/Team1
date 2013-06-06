@@ -1,5 +1,6 @@
 package at.edu.hti.shop;
 
+import at.edu.hti.shop.domain.Lebensmittel;
 import at.edu.hti.shop.domain.Order;
 import at.edu.hti.shop.domain.OrderLine;
 import at.edu.hti.shop.domain.PriceStrategyFactory;
@@ -10,11 +11,11 @@ public class App {
 
 		Order shopOrder = new Order(PriceStrategyFactory.getStrategy("DefaultStrategy"));
 
-		OrderLine line1 = new OrderLine(new Product(1, "Äpfel", 1.2), 4);
-		OrderLine line2 = new OrderLine(new Product(2, "Birnen", 1.5), 2);
+		OrderLine line1 = new OrderLine(new Product<Lebensmittel>(1, "Äpfel", 1.2), 4);
+		OrderLine line2 = new OrderLine(new Product<Lebensmittel>(2, "Birnen", 1.5), 2);
 
-		OrderLine line3 = new OrderLine(new Product(3, "Pfirsich", 2.2), 5);
-		OrderLine line4 = new OrderLine(new Product(4, "Kiwi", 3.5), 6);
+		OrderLine line3 = new OrderLine(new Product<Lebensmittel>(3, "Pfirsich", 2.2), 5);
+		OrderLine line4 = new OrderLine(new Product<Lebensmittel>(4, "Kiwi", 3.5), 6);
 
 		shopOrder.addLine(line1);
 		shopOrder.addLine(line2);
