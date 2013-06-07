@@ -36,18 +36,41 @@ public class App {
 		shopOrder.addLine(line2);
 		shopOrder.addLine(line3);
 		shopOrder.addLine(line4);
+		
+		// ## <Übung> ##
+		
+		System.out.println("original Order:");
+		System.out.println("---------------");
+		for (OrderLine line : shopOrder.getLines()) {
+			System.out.println("OrderLine: " + line);
+		}
+		System.out.println("----------");
 
 		// ****** split order
 		List<Order> orders = OrderManager.splitOrder(shopOrder,
 				new Category().and(new MaxWeight(10)));
 
+		System.out.println("Orders after split:");
+		System.out.println("-------------------");
+		
 		for (Order order : orders) {
 			System.out.println("Order:");
 			for (OrderLine line : order.getLines()) {
 				System.out.println("OrderLine: " + line);
 			}
-			System.out.println("----------\n");
+			System.out.println("----------");
 		}
+		
+		Order order = OrderManager.mergeOrder(orders);
+		
+		System.out.println("Order after merge:");
+		System.out.println("------------------");
+		for (OrderLine line : order.getLines()) {
+			System.out.println("OrderLine: " + line);
+		}
+		System.out.println("----------");
+		
+		// ## </Übung> ##
 
 		System.out.println(shopOrder.getLines().size());
 		System.out.println(shopOrder);

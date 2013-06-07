@@ -1,7 +1,6 @@
 package at.edu.hti.shop.domain.spec;
 
-import java.util.List;
-
+import at.edu.hti.shop.domain.Order;
 import at.edu.hti.shop.domain.OrderLine;
 import at.edu.hti.shop.domain.Product;
 
@@ -14,11 +13,11 @@ public class MaxWeight extends CompositeSpecification {
 	}
 
 	@Override
-	public boolean isSatisfiedBy(List<OrderLine> lines, Product candidate) {
+	public boolean isSatisfiedBy(Order order, Product candidate) {
 		
 		double currentWeight = 0;
-		for (OrderLine shippmentLine : lines) {
-			currentWeight += shippmentLine.getProduct().getWeight() * shippmentLine.getAmount();
+		for (OrderLine line : order.getLines()) {
+			currentWeight += line.getProduct().getWeight() * line.getAmount();
 		}
 
 		if (currentWeight == 0) {

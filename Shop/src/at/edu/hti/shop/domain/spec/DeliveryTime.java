@@ -1,17 +1,16 @@
 package at.edu.hti.shop.domain.spec;
 
-import java.util.List;
-
+import at.edu.hti.shop.domain.Order;
 import at.edu.hti.shop.domain.OrderLine;
 import at.edu.hti.shop.domain.Product;
 
 public class DeliveryTime extends CompositeSpecification {
 
 	@Override
-	public boolean isSatisfiedBy(List<OrderLine> lines, Product candidate) {
+	public boolean isSatisfiedBy(Order order, Product candidate) {
 		
-		if (!lines.isEmpty()) {
-			if (lines.get(0).getProduct().getDeliveryTime() == candidate.getDeliveryTime()) {
+		if (!order.getLines().isEmpty()) {
+			if (order.getLines().get(0).getProduct().getDeliveryTime() == candidate.getDeliveryTime()) {
 				return true;
 			} else {
 				return false;

@@ -1,17 +1,16 @@
 package at.edu.hti.shop.domain.spec;
 
-import java.util.List;
-
+import at.edu.hti.shop.domain.Order;
 import at.edu.hti.shop.domain.OrderLine;
 import at.edu.hti.shop.domain.Product;
 
 public class Category extends CompositeSpecification {
 
 	@Override
-	public boolean isSatisfiedBy(List<OrderLine> lines, Product candidate) {
+	public boolean isSatisfiedBy(Order order, Product candidate) {
 		
-		if (!lines.isEmpty()) {
-			return lines.get(0).getProduct().getCategory().equals(candidate.getCategory());
+		if (!order.getLines().isEmpty()) {
+			return order.getLines().get(0).getProduct().getCategory().equals(candidate.getCategory());
 		}
 		
 		return true;

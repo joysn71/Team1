@@ -1,7 +1,6 @@
 package at.edu.hti.shop.domain.spec;
 
 import java.util.Collections;
-import java.util.List;
 
 import at.edu.hti.shop.domain.Order;
 import at.edu.hti.shop.domain.OrderLine;
@@ -9,7 +8,7 @@ import at.edu.hti.shop.domain.Product;
 
 public abstract class CompositeSpecification implements ISpecification {
 
-	public abstract boolean isSatisfiedBy(List<OrderLine> lines, Product candidate);
+	public abstract boolean isSatisfiedBy(Order order, Product candidate);
 
 	@Override
 	public ISpecification and(ISpecification other) {

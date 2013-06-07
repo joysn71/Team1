@@ -1,7 +1,6 @@
 package at.edu.hti.shop.domain.spec;
 
-import java.util.List;
-
+import at.edu.hti.shop.domain.Order;
 import at.edu.hti.shop.domain.OrderLine;
 import at.edu.hti.shop.domain.Product;
 
@@ -17,8 +16,8 @@ public class OrSpecification extends CompositeSpecification {
     }
 
 	@Override
-	public boolean isSatisfiedBy(List<OrderLine> lines, Product candidate) {
-		return one.isSatisfiedBy(lines, candidate) || other.isSatisfiedBy(lines, candidate);
+	public boolean isSatisfiedBy(Order order, Product candidate) {
+		return one.isSatisfiedBy(order, candidate) || other.isSatisfiedBy(order, candidate);
 	}
 	
 	@Override
