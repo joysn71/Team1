@@ -10,6 +10,9 @@ public class Order {
 
 	List<OrderLine> lines = new ArrayList<OrderLine>();
 	IPriceStrategy priceStrategy;
+	
+	public Order() {
+	}
 
 	public Order(IPriceStrategy priceStrategy) {
 		setPriceStrategy(priceStrategy);
@@ -39,11 +42,18 @@ public class Order {
 	}
 
 	public double calcPrize() {
+		if (priceStrategy == null) {
+			throw new IllegalStateException("price calculation strategy not set!");
+		}
 		return priceStrategy.calcPrice(lines);
 	}
 	
 	public void setPriceStrategy(IPriceStrategy priceStrategy) {
 		this.priceStrategy = priceStrategy;
+	}
+	
+	public IPriceStrategy getPriceStrategy() {
+		return this.priceStrategy;
 	}
 
 	@Override

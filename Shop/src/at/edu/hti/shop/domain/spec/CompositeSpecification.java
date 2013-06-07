@@ -6,11 +6,10 @@ import java.util.List;
 import at.edu.hti.shop.domain.Order;
 import at.edu.hti.shop.domain.OrderLine;
 import at.edu.hti.shop.domain.Product;
-import at.edu.hti.shop.domain.ShipmentLine;
 
 public abstract class CompositeSpecification implements ISpecification {
 
-	public abstract boolean isSatisfiedBy(List<ShipmentLine> lines, Product candidate);
+	public abstract boolean isSatisfiedBy(List<OrderLine> lines, Product candidate);
 
 	@Override
 	public ISpecification and(ISpecification other) {

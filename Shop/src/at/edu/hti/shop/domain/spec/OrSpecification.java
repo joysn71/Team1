@@ -4,7 +4,6 @@ import java.util.List;
 
 import at.edu.hti.shop.domain.OrderLine;
 import at.edu.hti.shop.domain.Product;
-import at.edu.hti.shop.domain.ShipmentLine;
 
 public class OrSpecification extends CompositeSpecification {
 	
@@ -18,7 +17,7 @@ public class OrSpecification extends CompositeSpecification {
     }
 
 	@Override
-	public boolean isSatisfiedBy(List<ShipmentLine> lines, Product candidate) {
+	public boolean isSatisfiedBy(List<OrderLine> lines, Product candidate) {
 		return one.isSatisfiedBy(lines, candidate) || other.isSatisfiedBy(lines, candidate);
 	}
 	

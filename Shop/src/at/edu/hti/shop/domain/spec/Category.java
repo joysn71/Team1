@@ -4,15 +4,14 @@ import java.util.List;
 
 import at.edu.hti.shop.domain.OrderLine;
 import at.edu.hti.shop.domain.Product;
-import at.edu.hti.shop.domain.ShipmentLine;
 
 public class Category extends CompositeSpecification {
 
 	@Override
-	public boolean isSatisfiedBy(List<ShipmentLine> lines, Product candidate) {
+	public boolean isSatisfiedBy(List<OrderLine> lines, Product candidate) {
 		
 		if (!lines.isEmpty()) {
-			return lines.get(0).getLine().getProduct().getCategory().equals(candidate.getCategory());
+			return lines.get(0).getProduct().getCategory().equals(candidate.getCategory());
 		}
 		
 		return true;
