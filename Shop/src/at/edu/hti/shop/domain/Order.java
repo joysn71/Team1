@@ -1,8 +1,10 @@
 package at.edu.hti.shop.domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+
+import at.edu.hti.shop.domain.pricing.IPriceStrategy;
+
 
 public class Order {
 
@@ -33,7 +35,7 @@ public class Order {
 	}
 	
 	public List<OrderLine> getLines() {
-		return Collections.unmodifiableList(lines);
+		return lines;
 	}
 
 	public double calcPrize() {

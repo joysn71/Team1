@@ -1,5 +1,7 @@
 package at.edu.hti.shop.domain;
 
+import at.edu.hti.shop.domain.spec.ProductCategory;
+
 public class Product {
 	private String name;
 	private long id;

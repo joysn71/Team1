@@ -1,4 +1,4 @@
-package at.edu.hti.shop.domain;
+package at.edu.hti.shop.domain.pricing;
 
 public class PriceStrategyFactory {
 	
