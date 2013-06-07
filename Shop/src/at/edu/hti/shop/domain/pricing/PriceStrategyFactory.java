@@ -8,7 +8,7 @@ public class PriceStrategyFactory {
 		}
 		
 		switch (id) {
-		case "DefaultStrategy":
+		case "DefaultPriceStrategy":
 			return new DefaultPriceStrategy();
 
 		case "FreeShippingPriceStrategy":

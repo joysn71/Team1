@@ -58,6 +58,8 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return lines.toString() + " \n =>" + calcPrize();
+		return lines.toString() + 
+				" \n priceStrategy => " + priceStrategy.getClass().getSimpleName() + 
+				" \n price => " + calcPrize();
 	}
 }

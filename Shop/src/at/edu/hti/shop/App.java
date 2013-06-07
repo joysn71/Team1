@@ -15,7 +15,7 @@ public class App {
 	public static void main(String[] args) {
 
 		Order shopOrder = new Order(
-				PriceStrategyFactory.getStrategy("DefaultStrategy"));
+				PriceStrategyFactory.getStrategy("DefaultPriceStrategy"));
 
 		OrderLine line1 = new OrderLine(new Product(
 				ProductCategory.LEBENSMITTEL, 1, "Äpfel", 1.2, 10, 7), 4);
@@ -28,7 +28,7 @@ public class App {
 		// ProductCategory.LEBENSMITTEL, 4, "Kiwi", 3.5, 5, 30), 6);
 
 		OrderLine line3 = new OrderLine(new Product(ProductCategory.WERKZEUG,
-				3, "Schraubenzieher", 2.2, 3, 21), 5);
+				3, "Schraubenzieher", 5.0, 3, 21), 5);
 		OrderLine line4 = new OrderLine(new Product(
 				ProductCategory.LEBENSMITTEL, 4, "Kiwi", 3.5, 5, 30), 6);
 
@@ -39,7 +39,7 @@ public class App {
 		
 		// ## <Übung> ##
 		
-		System.out.println("original Order:");
+		System.out.println("\noriginal Order:");
 		System.out.println("---------------");
 		for (OrderLine line : shopOrder.getLines()) {
 			System.out.println("OrderLine: " + line);
@@ -47,10 +47,11 @@ public class App {
 		System.out.println("----------");
 
 		// ****** split order
+		
 		List<Order> orders = OrderManager.splitOrder(shopOrder,
 				new Category().and(new MaxWeight(10)));
 
-		System.out.println("Orders after split:");
+		System.out.println("\nOrders after split:");
 		System.out.println("-------------------");
 		
 		for (Order order : orders) {
@@ -61,9 +62,21 @@ public class App {
 			System.out.println("----------");
 		}
 		
+		// ****** calc price of splitted orders
+		
+		System.out.println("\nPrices after split:");
+		System.out.println("-------------------");
+		
+		for (Order order : orders) {
+			System.out.println(order);
+			System.out.println("----------");
+		}
+		
+		// ****** merge orders
+		
 		Order order = OrderManager.mergeOrder(orders);
 		
-		System.out.println("Order after merge:");
+		System.out.println("\nOrder after merge:");
 		System.out.println("------------------");
 		for (OrderLine line : order.getLines()) {
 			System.out.println("OrderLine: " + line);
