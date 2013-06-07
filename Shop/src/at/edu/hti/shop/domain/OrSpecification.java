@@ -12,8 +12,8 @@ public class OrSpecification extends CompositeSpecification {
     }
 
 	@Override
-	public boolean IsSatisfiedBy(Product<?> candidate) {
-		return one.IsSatisfiedBy(candidate) || other.IsSatisfiedBy(candidate);
+	public boolean isSatisfiedBy(Product candidate) {
+		return one.isSatisfiedBy(candidate) || other.isSatisfiedBy(candidate);
 	}
 
 }

@@ -12,8 +12,9 @@ public class AndSpecification extends CompositeSpecification {
     }
 
 	@Override
-	public boolean IsSatisfiedBy(Product<?> candidate) {
-		return one.IsSatisfiedBy(candidate) && other.IsSatisfiedBy(candidate);
+	public boolean isSatisfiedBy(Product candidate) {
+		//gewicht && category
+		return one.isSatisfiedBy(candidate) && other.isSatisfiedBy(candidate);
 	}
 
 }

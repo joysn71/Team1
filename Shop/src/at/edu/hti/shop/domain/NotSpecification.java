@@ -10,8 +10,8 @@ public class NotSpecification extends CompositeSpecification {
     }
 
 	@Override
-	public boolean IsSatisfiedBy(Product<?> candidate) {
-		return !wrapped.IsSatisfiedBy(candidate);
+	public boolean isSatisfiedBy(Product candidate) {
+		return !wrapped.isSatisfiedBy(candidate);
 	}
 
 }

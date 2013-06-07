@@ -1,5 +1,8 @@
 package at.edu.hti.shop.domain;
 
-public abstract class ProductCategory {
+public enum ProductCategory {
 
+	LEBENSMITTEL,
+	WERKZEUG;
+	
 }

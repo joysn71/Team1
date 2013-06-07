@@ -1,18 +1,21 @@
 package at.edu.hti.shop.domain;
 
-public class Product<T extends ProductCategory> {
+public class Product {
 	private String name;
 	private long id;
 	private double prize;
 	private double weight; 
 	private int deliveryTime;
-	private T category;
+	private ProductCategory category;
 
-	public Product( long id, String name, double prize) {
+	public Product(ProductCategory category, long id, String name, double prize, double weight, int deliveryTime) {
 		super();
 		this.name = name;
 		this.id = id;
 		this.prize = prize;
+		this.category = category;
+		this.weight = weight;
+		this.deliveryTime = deliveryTime;
 	}
 
 	public String getName() {
@@ -43,9 +46,21 @@ public class Product<T extends ProductCategory> {
 		this.deliveryTime = deliveryTime;
 	}
 
+	public ProductCategory getCategory() {
+		return category;
+	}
+
+	public void setCategory(ProductCategory category) {
+		this.category = category;
+	}
+
 	@Override
 	public String toString() {
-		return "Product [" + name + ", " + id + ", " + prize + "]";
+		return "Product [name=" + name + ", id=" + id + ", prize=" + prize
+				+ ", weight=" + weight + ", deliveryTime=" + deliveryTime
+				+ ", category=" + category + "]";
 	}
+
+
 
 }
