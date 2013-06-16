@@ -10,15 +10,15 @@ public class RouterFactory {
 		Router router = null;
 		
 		switch (type) {
-		case "solution":
+		case "Solution":
 			router = new SolutionRouter();
 			break;
 
-		case "withBruteForce":
+		case "BruteForce":
 			router = new BruteForceRouter();
 			break;
 			
-		case "withDijkstra":
+		case "Dijkstra":
 			router = new DijkstraRouter();
 			break;
 

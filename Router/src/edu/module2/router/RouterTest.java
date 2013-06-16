@@ -21,9 +21,9 @@ public class RouterTest {
 		printField(field, null);
 		System.out.println("\n\nSolutions:");
 		
-		runAlgorithm(field, "withBruteForce");
-		runAlgorithm(field, "withDijkstra");
-		runAlgorithm(field, "solution");
+		runAlgorithm(field, "BruteForce");
+		runAlgorithm(field, "Dijkstra");
+		runAlgorithm(field, "Solution");
 
 	}
 	
